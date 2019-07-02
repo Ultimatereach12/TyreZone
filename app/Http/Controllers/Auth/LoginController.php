@@ -36,4 +36,17 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function index(Request $req){
+      $mobile = $req->input('mobile');
+      $password = $req->input('password');
+      $login_array = array('mobile' => $mobile, 'password' => $password);
+      $user = Auth::create_user();
+
+      if ($user($login_array)){
+        return redirect('main/Home');
+      } else {
+        return back()->with('error', 'Wrong login details');
+      }
+      return view('login');
+    }
 }
