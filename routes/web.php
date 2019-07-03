@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::any('/', 'MainController@index');
-Route::any('/home', 'MainController@create');
 Route::any('/home', 'MainController@home');
+Route::any('/news', 'MainController@news');
+Route::any('/emergency', 'MainController@emergency');
+Route::any('/arrange', 'MainController@arrange');
+Route::any('/updates', 'MainController@updates');
 Route::any('/superadmin', 'MainController@createadmin');
-Route::post('superadmin/index', 'AjaxController@index');

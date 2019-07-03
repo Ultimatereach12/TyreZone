@@ -372,6 +372,7 @@
         i.fa{
             font-size: 30px;
         }
+
     </style>
     <!-- Design CSS Ends -->
 
@@ -384,11 +385,11 @@
         <a class="navbar-brand" href=""><strong>TyreZone</strong></a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
+        <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
         <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
         <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
-        <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
+        <li class="active"><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
     </div>
@@ -409,85 +410,28 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="home_form" method="POST" role="form" action="{{ URL::to("/home") }}" style="display: block;">
-                              {{ csrf_field() }}
+                          <form id="updates" method="POST" role="form" action="{{ URL::to("/arrange") }}" style="display: block;">
+                            {{ csrf_field() }}
                               <div class="form-group">
-                                <div class="useridIcon">
-                                  <input type="text" name="user_id" id="user_id" tabindex="1" class="form-control" placeholder="User ID" value="">
-                                  <i class="fa fa-id-card fa-lg fa-fw" aria-hidden="true"></i>
+                                <div class="titleIcon">
+                                  <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="Username" value="">
+                                  <i class="fa fa-newspaper-o fa-lg fa-fw" aria-hidden="true"></i>
                                 </div>
                               </div>
                               <div class="form-group">
-                                <div class="usernameIcon">
-                                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="User Name" value="">
-                                  <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                <div class="contentIcon">
+                                  <textarea name="content" id="content" tabindex="2" class="form-control" placeholder="Password">
+                                  <i class="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
                                 </div>
                               </div>
-                                <div class="form-group">
-                                  <div class="mobileIcon">
-                                    <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="" maxlength="10">
-                                    <i class="fa fa-mobile fa-lg fa-fw" aria-hidden="true"></i>
+                              <div class="form-group">
+                                  <div class="row">
+                                      <div class="col-sm-6 col-sm-offset-3">
+                                          <input type="submit" name="create" id="create" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                      </div>
                                   </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="emailIcon">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                                    <i class="fa fa-envelope-o fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="passwordIcon">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                    <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="addressIcon">
-                                    <input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="Address">
-                                    <i class="fa fa-location-arrow fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="shopIcon">
-                                    <select name="shop" id="shop" tabindex="2" class="form-control">
-                                      <option selected value="0">-- Select the shop --</option>
-                                      <?php
-                                        $items = DB::select("SELECT * FROM shop_details");
-                                        foreach ($items as $key) {
-                                          $id = $key->shop_id;
-                                          $area = $key->shop_area; ?>
-                                          <option value="<?php echo $id; ?>"><?php echo $area; ?></option>
-                                        <?php }
-                                       ?>
-                                    </select>
-                                    <i class="fa fa-automobile fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="productIcon">
-                                    <select name="product" id="product" tabindex="2" class="form-control">
-                                      <option selected value="0">-- Select the shop --</option>
-                                      <?php
-                                        $item = DB::select("SELECT * FROM product_type");
-                                        foreach ($item as $key) {
-                                          $id = $key->product_id;
-                                          $area = $key->product_name.",".$key->product_pack.",".$key->rate.",".$key->size; ?>
-                                          <option value="<?php echo $id; ?>"><?php echo $area; ?></option>
-                                        <?php }
-                                       ?>
-                                    </select>
-                                    <i class="fa fa-cart-arrow-down fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="create_user" id="create_user" tabindex="4" class="form-control btn btn-login" value="Create User">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                              </div>
+                          </form>
                         </div>
                     </div>
                 </div>

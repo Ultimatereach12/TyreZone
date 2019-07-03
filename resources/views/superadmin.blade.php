@@ -387,10 +387,19 @@
                                   <div class="addressIcon">
                                     <select name="address" id="address" tabindex="2" class="form-control">
                                       <option selected value="0">-- Select the shop --</option>
+                                      <?php
+                                        $items = DB::select("SELECT * FROM shop_details");
+                                        foreach ($items as $key) {
+                                          $id = $key->shop_id;
+                                          $area = $key->shop_area; ?>
+                                          <option value="<?php echo $id; ?>"><?php echo $area; ?></option>
+                                        <?php }
+                                       ?>
                                     </select>
-                                    <i class="fa fa-location-arrow fa-lg fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-automobile fa-lg fa-fw" aria-hidden="true"></i>
                                   </div>
                                 </div>
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
@@ -402,19 +411,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="panel-body" style="display: none;">
+                <div class="panel-body" style="display: none;">
                     <div class="row">
                         <div class="col-lg-12">
                             <form id="login-form" method="POST" role="form" action="{{ URL::to("/index") }}" style="display: block;">
                               {{ csrf_field() }}
                                 <div class="form-group">
-                                  <div class="usernameIcon">
+                                  <div class="titeIcon">
                                     <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Username" value="">
                                     <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                   </div>
                                 </div>
                                 <div class="form-group">
-                                  <div class="passwordIcon">
+                                  <div class="contentIcon">
                                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                     <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
                                   </div>
@@ -435,7 +444,7 @@
                             </form>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -490,7 +499,7 @@
         $("#password").css("border-color","#D84315");
         return false;
       }
-      else if (address != "0") {
+      else if (address == "0") {
         $("#address").css("background-color","#FBE9E7");
         $("#address").css("border-color","#D84315");
         return false;
@@ -558,10 +567,9 @@
       }
     });
 
-    $("#address").keyup(function(){
-      var e = document.getElementById("address");
-      var selected = e.options[e.selectedIndex].value;
-      if (selected == "0"){
+    $("#address").change(function(){
+      var selected = document.getElementById("address").value;
+      if (selected != "0"){
         $("#address").css("background-color","#C8E6C9");
         $("#address").css("border-color","#388E3C");
       } else {
@@ -570,12 +578,8 @@
       }
     });
 
-    $.post('/superadmin/index', function(response){
-        if(response.success)
-        {
-            alert(response);
-        }
-    }, 'json');
+    $('html, body').animate({scrollTop: '70px'}, 800);
+
 </script>
 </html>
 <!-- Completed by Sainath kishore.R.G at 18-06-2019 -->
