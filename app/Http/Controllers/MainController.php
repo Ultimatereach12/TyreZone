@@ -15,6 +15,7 @@ class MainController extends Controller
         $password = $req->input('password');
 
         if ($mobile != "" || $password != "") {
+          $req->session()->put('mobile',$mobile);
           $login_details = DB::select('select * from create_user where mobile = ? and password = ? and user_type = ?', [$mobile, $password, 1]);
           $login_details_admin = DB::select('select * from create_user where mobile = ? and password = ? and user_type = ?  and alive = ?', [$mobile, $password, 2, 1]);
           if (count($login_details) >= 1){
@@ -71,12 +72,35 @@ class MainController extends Controller
       return view('news');
     }
     function emergency(Request $req){
+      if ($req->input('emergency')) {
+        $client_id = $req->input('client');
+        $pick_up_arrange = DB::update('update arrange_pickup set pick_up_arranged = ? where user_id = ?',[1,$client_id]);
+      }
       return view('emergency');
     }
     function arrange(Request $req){
+      if ($req->input('arrange')) {
+        $client_id = $req->input('client');
+        $pick_up_arrange = DB::update('update arrange_pickup set pick_up_arranged = ? where user_id = ?',[1,$client_id]);
+      }
       return view('arrange');
     }
     function updates(Request $req){
+      if ($req->input("change")) {
+        $change_password = $req->input("change_password");
+        $my_mobile = session()->get('mobile');
+        $changed = DB::update('update create_user set password = ? where mobile = ?',[$change_password, $my_mobile]);
+        echo "<div class='row justify-content-center' style='padding-top: 100px;'>
+            <div class='col-md-7 col-md-offset-5'>
+                <div class='card'>
+                    <div class='card-header' style='color: #b21f2d'>
+                        <strong>Password Changed Successfully!!!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>";
+        return view('login');
+      }
       return view('updates');
     }
     function home(Request $req){

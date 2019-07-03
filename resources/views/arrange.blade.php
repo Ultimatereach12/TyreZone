@@ -181,8 +181,8 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li class="active"><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
-        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
+        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
+        <li class="active"><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
         <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
@@ -204,19 +204,19 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                          <form id="emergency" method="POST" role="form" action="{{ URL::to("/emergency") }}" style="display: block;">
+                          <form id="emergency" method="POST" role="form" action="{{ URL::to("/arrange") }}" style="display: block;">
                             {{ csrf_field() }}
                             <div class="form-group">
                               <div class="shopIcon">
                                 <select name="client" id="client" tabindex="2" class="form-control">
                                   <option selected value="0">-- Select the client --</option>
                                   <?php
-                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0");
+                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
                                     foreach ($items as $key) {
                                       $id = $key->user_id;
                                       $user_name_find = DB::select("SELECT * FROM create_user WHERE user_id = '".$id."'");
                                       foreach ($user_name_find as $keys) {
-                                        $name = $keys->name; ?>
+                                        $name = $keys->name ." -- ". $key->date_time; ?>
                                       <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
                                     <?php }
                                       }
@@ -228,7 +228,7 @@
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-sm-6 col-sm-offset-3">
-                                          <input type="submit" name="create" id="create" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                          <input type="submit" name="arrange" id="arrange" tabindex="4" class="form-control btn btn-login" value="Arrange Pickup">
                                       </div>
                                   </div>
                               </div>

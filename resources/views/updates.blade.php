@@ -133,17 +133,8 @@
             border-color: #1CA347;
         }
 
-        #mobile{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #mobile:hover,
-        #mobile:focus{
+        #retype_password:hover,
+        #retype_password:focus{
             border-top-right-radius: 200px;
             border-top-left-radius: 200px;
             border-bottom-right-radius: 200px;
@@ -153,8 +144,26 @@
             border-color: #5a6268;
         }
 
-        #user_id:hover,
-        #user_id:focus{
+        #retype_password{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+        }
+
+        #change_password{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+        }
+
+        #change_password:hover,
+        #change_password:focus{
             border-top-right-radius: 200px;
             border-top-left-radius: 200px;
             border-bottom-right-radius: 200px;
@@ -162,160 +171,9 @@
             padding-inline-start: 75px;
             background-color: #E0F7FA;
             border-color: #5a6268;
-        }
-
-        #user_id{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #password{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #password:hover,
-        #password:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #username:hover,
-        #username:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #username{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #email:hover,
-        #email:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #email{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #address:hover,
-        #address:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #address{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #shop:hover,
-        #shop:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-            height: 45px;
-        }
-
-        #shop{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-            height: 45px;
-        }
-
-        #product:hover,
-        #product:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-            height: 45px;
-        }
-
-        #product{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-            height: 45px;
-        }
-
-        .usernameIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 70px 40px;
-            color: #aaa;
-            transition: 0.3s;
         }
 
         .passwordIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 250px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .useridIcon i{
             position: absolute;
             left: 0;
             top: 2px;
@@ -324,47 +182,11 @@
             transition: 0.3s;
         }
 
-        .emailIcon i{
+        .retypeIcon i{
             position: absolute;
             left: 0;
             top: 2px;
-            padding: 190px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .mobileIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 130px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .addressIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 310px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .shopIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 370px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .productIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 430px 40px;
+            padding: 70px 40px;
             color: #aaa;
             transition: 0.3s;
         }
@@ -410,24 +232,25 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                          <form id="updates" method="POST" role="form" action="{{ URL::to("/arrange") }}" style="display: block;">
+                          <form id="updates" method="POST" role="form" action="{{ URL::to("/updates") }}" style="display: block;">
                             {{ csrf_field() }}
+                            <?php $my_mobile = session()->get('mobile'); ?>
                               <div class="form-group">
-                                <div class="titleIcon">
-                                  <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="Username" value="">
-                                  <i class="fa fa-newspaper-o fa-lg fa-fw" aria-hidden="true"></i>
+                                <div class="passwordIcon">
+                                  <input type="password" name="change_password" id="change_password" tabindex="1" class="form-control" placeholder="Password" value="">
+                                  <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
                                 </div>
                               </div>
                               <div class="form-group">
-                                <div class="contentIcon">
-                                  <textarea name="content" id="content" tabindex="2" class="form-control" placeholder="Password">
-                                  <i class="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
+                                <div class="retypeIcon">
+                                  <input type="password" name="retype_password" id="retype_password" tabindex="1" class="form-control" placeholder="Confrom Password" value="">
+                                  <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
                                 </div>
                               </div>
                               <div class="form-group">
                                   <div class="row">
                                       <div class="col-sm-6 col-sm-offset-3">
-                                          <input type="submit" name="create" id="create" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                          <input type="submit" name="change" id="change" tabindex="4" class="form-control btn btn-login" value="Change Password">
                                       </div>
                                   </div>
                               </div>
@@ -441,163 +264,65 @@
 </div>
 </body>
 <script>
-    $("#create_user").click(function(){
-      var id = document.getElementById("user_id").value;
-      var pass = document.getElementById("password").value;
-      var username = document.getElementById("username").value;
-      var mobile = document.getElementById("mobile").value;
-      var email = document.getElementById("email").value;
-      var address = document.getElementById("address").value;
-      var shop = document.getElementById("shop").value;
-      var product = document.getElementById("product").value;
+    $("#change").click(function(){
+      var pass = document.getElementById("change_password").value;
+      var retype = document.getElementById("retype_password").value;
 
-      if (id == "" && username == "" && mobile == "" && email == "" && pass == "" && address == "" && shop == "0" && product == "0") {
-        $("#mobile").css("background-color","#FBE9E7");
-        $("#mobile").css("border-color","#D84315");
-        $("#password").css("background-color","#FBE9E7");
-        $("#password").css("border-color","#D84315");
-        $("#username").css("background-color","#FBE9E7");
-        $("#username").css("border-color","#D84315");
-        $("#user_id").css("background-color","#FBE9E7");
-        $("#email").css("background-color","#FBE9E7");
-        $("#email").css("border-color","#D84315");
-        $("#user_id").css("border-color","#D84315");
-        $("#address").css("background-color","#FBE9E7");
-        $("#address").css("border-color","#D84315");
-        $("#shop").css("background-color","#FBE9E7");
-        $("#shop").css("border-color","#D84315");
-        $("#product").css("background-color","#FBE9E7");
-        $("#product").css("border-color","#D84315");
+      if (pass == "" && retype == "") {
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
         return false;
       }
-      else if (id == ""){
-        $("#user_id").css("background-color","#FBE9E7");
-        $("#user_id").css("border-color","#D84315");
+      else if (retype == ""){
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
         return false;
       }
-      else if (mobile == ""){
-        $("#mobile").css("background-color","#FBE9E7");
-        $("#mobile").css("border-color","#D84315");
+      else if (pass == ""){
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
         return false;
       }
-      else if (username == ""){
-        $("#username").css("background-color","#FBE9E7");
-        $("#username").css("border-color","#D84315");
+      else if (pass != retype){
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
+        alert("Mismatched Password");
         return false;
       }
-      else if (email == ""){
-        $("#email").css("background-color","#FBE9E7");
-        $("#email").css("border-color","#D84315");
-        return false;
-      }
-      else if (pass == "") {
-        $("#password").css("background-color","#FBE9E7");
-        $("#password").css("border-color","#D84315");
-        return false;
-      }
-      else if (address == "0") {
-        $("#address").css("background-color","#FBE9E7");
-        $("#address").css("border-color","#D84315");
-        return false;
-      }
-      else if (address == "0") {
-        $("#address").css("background-color","#FBE9E7");
-        $("#address").css("border-color","#D84315");
+
+      if (pass.length > 6 || retype.length > 6) {
+        $("#retype_password").css("background-color","#C8E6C9");
+        $("#retype_password").css("border-color","#388E3C");
+        $$("#change_password").css("background-color","#C8E6C9");
+        $("#change_password").css("border-color","#388E3C");
+        alert("Password minimum length should be six");
         return false;
       }
     });
 
-    $("#mobile").keypress(function(e){
-      var id = document.getElementById("mobile").value;
-      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-          return false;
+    $("#change_password").keypress(function(){
+      var cp = document.getElementById("change_password").value;
+      if (cp.length > 6){
+        $("#change_password").css("background-color","#C8E6C9");
+        $("#change_password").css("border-color","#388E3C");
       } else {
-        if (id.length == 9){
-          $("#mobile").css("background-color","#C8E6C9");
-          $("#mobile").css("border-color","#388E3C");
-        } else {
-          $("#mobile").css("background-color","#FBE9E7");
-          $("#mobile").css("border-color","#D84315");
-        }
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
       }
     });
 
-    $("#password").keyup(function(){
-      var id = document.getElementById("password").value;
-      if (id.length > 6){
-        $("#password").css("background-color","#C8E6C9");
-        $("#password").css("border-color","#388E3C");
+    $("#retype_password").keypress(function(){
+      var retype_password1 = document.getElementById("retype_password").value;
+      if (retype_password1.length > 6){
+        $("#retype_password").css("background-color","#C8E6C9");
+        $("#retype_password").css("border-color","#388E3C");
       } else {
-        $("#password").css("background-color","#FBE9E7");
-        $("#password").css("border-color","#D84315");
-      }
-    });
-
-    $("#user_id").keyup(function(){
-      var id1 = document.getElementById("user_id").value;
-      if (id1.length >= 6){
-        $("#user_id").css("background-color","#C8E6C9");
-        $("#user_id").css("border-color","#388E3C");
-      } else {
-        $("#user_id").css("background-color","#FBE9E7");
-        $("#user_id").css("border-color","#D84315");
-      }
-      var fin_id = id1.toUpperCase();
-      document.getElementById("user_id").value = fin_id;
-    });
-
-    $("#username").keyup(function(){
-      var username1 = document.getElementById("username").value;
-      if (username1.length >= 5){
-        $("#username").css("background-color","#C8E6C9");
-        $("#username").css("border-color","#388E3C");
-      } else {
-        $("#username").css("background-color","#FBE9E7");
-        $("#username").css("border-color","#D84315");
-      }
-    });
-
-    $("#email").keyup(function(){
-      var email1 = document.getElementById("email").value;
-      if (email1.length >= 10){
-        $("#email").css("background-color","#C8E6C9");
-        $("#email").css("border-color","#388E3C");
-      } else {
-        $("#email").css("background-color","#FBE9E7");
-        $("#email").css("border-color","#D84315");
-      }
-    });
-
-    $("#address").keyup(function(){
-      var address1 = document.getElementById("email").value;
-      if (address1.length >= 10){
-        $("#address").css("background-color","#C8E6C9");
-        $("#address").css("border-color","#388E3C");
-      } else {
-        $("#address").css("background-color","#FBE9E7");
-        $("#address").css("border-color","#D84315");
-      }
-    });
-
-    $("#shop").change(function(){
-      var selected = document.getElementById("address").value;
-      if (selected != "0"){
-        $("#shop").css("background-color","#C8E6C9");
-        $("#shop").css("border-color","#388E3C");
-      } else {
-        $("#shop").css("background-color","#FBE9E7");
-        $("#shop").css("border-color","#D84315");
-      }
-    });
-
-    $("#product").change(function(){
-      var selected1 = document.getElementById("product").value;
-      if (selected1 != "0"){
-        $("#product").css("background-color","#C8E6C9");
-        $("#product").css("border-color","#388E3C");
-      } else {
-        $("#product").css("background-color","#FBE9E7");
-        $("#product").css("border-color","#D84315");
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
       }
     });
 

@@ -181,8 +181,8 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li class="active"><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
-        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
+        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
+        <li class="active"><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
         <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
@@ -211,12 +211,12 @@
                                 <select name="client" id="client" tabindex="2" class="form-control">
                                   <option selected value="0">-- Select the client --</option>
                                   <?php
-                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1");
+                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1 and pick_up_arranged = 0");
                                     foreach ($items as $key) {
                                       $id = $key->user_id;
                                       $user_name_find = DB::select("SELECT * FROM create_user WHERE user_id = '".$id."'");
                                       foreach ($user_name_find as $keys) {
-                                        $name = $keys->name; ?>
+                                        $name = $keys->name ." -- ". $key->date_time; ?>
                                       <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
                                     <?php }
                                       }
@@ -227,11 +227,180 @@
                             </div>
                               <div class="form-group">
                                   <div class="row">
-                                      <div class="col-sm-6 col-sm-offset-3">
-                                          <input type="submit" name="create" id="create" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                      <div class="col-sm-6 col-sm-offset-0">
+                                          <input type="submit" name="emergency" id="emergency" tabindex="4" class="form-control btn btn-login" value="Arrange Emergency Pickup">
+                                      </div>
+                                      <div class="col-sm-6 col-sm-offset-0">
+                                          <input type="submit" name="live" id="live" tabindex="4" class="form-control btn btn-login" value="Live Location">
                                       </div>
                                   </div>
                               </div>
+                            <?php if (isset($_POST['live'])){
+                              $live = DB::select("SELECT * FROM arrange_pickup WHERE user_id = ? ORDER BY id desc limit 1",[$id]);
+                                   $r=0;
+                                  while($live_data = mysqli_fetch_asoc($live)){
+
+                                      $client_location_lat = $live_data['loc_lat'];
+                                      $client_location_long = $live_data['loc_long'];
+
+                                      $rrt = explode(' ',$live_data['date_time']);
+
+                                      $addr = "{lat: ".$client_location_lat.", lng: ".$client_location_long."}";
+                                      $address1 .= "{lat: ".$client_location_lat.", lng: ".$client_location_long."},";
+
+                                      if($r==$cou-1){
+                                          $arraylist1 .= "["."'$rrt[1]'".",$client_location_lat,$client_location_lat]"  ;
+                                          $r;
+                                           $cou;
+
+                                      }else{
+                                           $arraylist1 .= "["."'$rrt[1]'".",$client_location_lat,$client_location_lat],";
+
+                                      }
+
+
+                                        $rety[] = $client_location_lat.','.$client_location_lat.',';
+                                        $r=$r+1;
+                                    }
+                                    for($i=0;$i<count($rety);$i++){
+
+                                        $key = array_slice($rety, $i, 2);
+
+                                        $kayv = $key[0];
+                                        $keyval = explode(',',$kayv);
+                                        $kayval = $key[1];
+                                        $keyvalue = explode(',',$kayval);
+                                        $lat1 = $keyval[0];
+                                        $lon1 = $keyval[1];
+                                        $lat2 = $keyvalue[0];
+                                        $lon2 = $keyvalue[1];
+                                        $theta = $lon1 - $lon2;
+                                        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+                                        $dist = acos($dist);
+                                        $dist = rad2deg($dist);
+                                        $miles= $dist * 60 * 1.1515;
+                                        $unit = 'K';
+                                        $km   = $miles*1.609344;
+                                        $ret[] = number_format($km,1);
+
+                                    }
+                                $address2 = "[".$address1."]";
+                                $arraylist="[".$arraylist1."]".";" ;
+                                ?>
+
+      </div>
+
+</div>
+
+<?php $name = DB::select("select * from create_user where user_id = ? ",[$id]);
+              while($fin_name = mysqli_fetch_assoc($name)){
+                $get_name = $fin_name['name'];
+              } ?>
+
+<div class="col-md-12">
+      <div id="map"></div>
+
+              <script>
+
+    var map;
+    var infoWindow;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: <?php echo $addr; ?>,
+        mapTypeId: 'terrain'
+      });
+
+
+   var locations = <?php echo $arraylist; ?>
+   console.log(location);
+
+var infowindow =  new google.maps.InfoWindow({});
+var name = "<?php echo $get_name; ?>";
+var emp_type = "<?php echo $type; ?>";
+if (emp_type == 2) {
+  emp_icon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+} if (emp_type == 3){
+  emp_icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+}
+var marker, count;
+for (count = 0; count < locations.length; count++) {
+  marker = new google.maps.Marker({
+    position: new google.maps.LatLng(locations[count][1], locations[count][2]),
+    map: map,
+    title: name,
+    icon: emp_icon,
+  });
+
+google.maps.event.addListener(marker, 'click', (function (marker, count) {
+    return function () {
+      infowindow.setContent(locations[count][0]);
+      infowindow.open(map, marker);
+    }
+  })(marker, count));
+}
+
+
+
+
+
+
+
+      // Define the LatLng coordinates for the polygon.
+      var triangleCoords = <?php echo $address2; ?>
+
+console.log(<?php echo $address2; ?>);
+      // Construct the polygon.
+      var bermudaTriangle = new google.maps.Polygon({
+        paths: triangleCoords,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35
+      });
+      bermudaTriangle.setMap(map);
+
+      // Add a listener for the click event.
+      bermudaTriangle.addListener('click', showArrays);
+
+      infoWindow = new google.maps.InfoWindow;
+    }
+
+
+
+    /** @this {google.maps.Polygon} */
+    function showArrays(event) {
+      // Since this polygon has only one path, we can call getPath() to return the
+      // MVCArray of LatLngs.
+      var vertices = this.getPath();
+
+
+
+      var contentString = '<b>Time</b><br>' + 'Clicked location: <br>' + event.latLng.lat() + ',' + '<br>';
+
+      // Iterate over the vertices.
+      for (var i =0; i < vertices.getLength(); i++) {
+        var xy = vertices.getAt(i);
+        contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
+            xy.lng();
+
+      }
+
+      // Replace the info window's content and position.
+      infoWindow.setContent(contentString);
+      infoWindow.setPosition(event.latLng);
+
+      infoWindow.open(map);
+    }
+  </script>
+
+              <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVESA3O6ilWwM60YmumzwjbWDStUQbN6c&callback=initMap"></script>
+
+
+      <?php }
+      ?>
                           </form>
                         </div>
                     </div>
