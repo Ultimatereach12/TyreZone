@@ -12,9 +12,15 @@
     <!--Ends here -->
 
     <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script> -->
     <!------ Bootstrap Ends ---------->
 
     <!-- Fonts -->
@@ -191,6 +197,152 @@
             transition: 0.3s;
         }
 
+        #client:hover,
+        #client:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #client{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #find:hover,
+        #find:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #find{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        .findIcon i{
+            position: absolute;
+            left: 0;
+            top: 2px;
+            padding: 10px 40px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        #base_client:hover,
+        #base_client:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #base_client{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        .baseClientIcon i{
+            position: absolute;
+            left: 0;
+            top: 2px;
+            padding: 10px 40px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        #base_puncture:hover,
+        #base_puncture:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #base_puncture{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        .basePunctureIcon i{
+            position: absolute;
+            left: 0;
+            top: 2px;
+            padding: 10px 40px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        #base_alignment:hover,
+        #base_alignment:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        #base_alignment{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+            height: 45px;
+        }
+
+        .baseAlignmentIcon i{
+            position: absolute;
+            left: 0;
+            top: 2px;
+            padding: 10px 40px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
         i.fa{
             font-size: 30px;
         }
@@ -209,8 +361,10 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
-        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
+        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
+        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
         <li class="active"><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
@@ -221,10 +375,18 @@
     <div class="row justify-content-center">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-login">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <label><h2>Shop ID:<?php echo $shop_get = session()->get('shop_ids'); ?></h2></label>
+                      </div>
+                  </div>
+                  <hr>
+              </div>
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <label><h2>Create User</h2></label>
+                            <label><h2>Change password</h2></label>
                         </div>
                     </div>
                     <hr>
@@ -234,7 +396,8 @@
                         <div class="col-lg-12">
                           <form id="updates" method="POST" role="form" action="{{ URL::to("/updates") }}" style="display: block;">
                             {{ csrf_field() }}
-                            <?php $my_mobile = session()->get('mobile'); ?>
+                            <?php
+                               $my_mobile = session()->get('mobile'); ?>
                               <div class="form-group">
                                 <div class="passwordIcon">
                                   <input type="password" name="change_password" id="change_password" tabindex="1" class="form-control" placeholder="Password" value="">
@@ -258,12 +421,206 @@
                         </div>
                     </div>
                 </div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label><h2>OTP and Package details</h2></label>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                          <form id="updates" method="POST" role="form" action="{{ URL::to("/updates") }}" style="display: block;">
+                            {{ csrf_field() }}
+                            <?php
+                               $my_mobile = session()->get('mobile'); ?>
+                              <div class="form-group">
+                                <div class="findIcon">
+                                  <select name="find" id="find" tabindex="2" class="form-control" data-live-search="true" data-live-search-style="startsWith">
+                                    <option selected value="0">-- Select the client --</option>
+                                    <?php
+                                      $items = DB::select("SELECT * FROM create_user WHERE user_type = 3");
+                                      foreach ($items as $key) {
+                                        $id = $key->user_id;
+                                        $name = $key->name; ?>
+                                        <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                      <?php }
+                                     ?>
+                                  </select>
+                                  <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                </div>
+                              </div>
+                              <div class="form-group" >
+                                <div class="col-md-offset-3">
+                                  <label style="color: #D84315" for="client" id="get_otp" name="get_otp">
+                                    <?php if (isset($_POST['get_client_otp'])) {
+                                        $ids = $_POST['find'];
+                                        $getting_id = DB::select("SELECT * FROM create_user WHERE user_id = '".$id1."'");
+                                        if (count($getting_id) >= 1) {
+                                          foreach ($getting_id as $key_otp) {
+                                            $fin_otp = $key_otp->otp;
+                                          }
+                                          echo "OTP of user: ". $name ." is " . $fin_otp;
+                                        } else {
+                                          echo "No OTP Available for the user:  ". $name;
+                                        }
+                                    }
+                                    if (isset($_POST['get_package'])) {
+                                        $ids1 = $_POST['find'];
+                                        $getting_id1 = DB::select("SELECT * FROM my_package WHERE user_id = '".$ids1."' ORDER BY id DESC LIMIT 1");
+                                        if (count($getting_id1) >= 1) {
+                                          foreach ($getting_id1 as $key_pack) {
+                                            $fin_pun = $key_pack->left_puncture;
+                                            $fin_alg = $key_pack->left_alignment;
+                                          }
+                                          echo "Package of user has: ". $fin_pun ." punctures and " . $fin_alg. " alignment in his account";
+                                        } else {
+                                          echo "No OTP Available for the user:  ". $name;
+                                        }
+                                    }
+                                    ?>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="row">
+                                      <div class="col-sm-6 col-sm-offset-0">
+                                          <input type="submit" name="get_client_otp" id="get_client_otp" tabindex="4" class="form-control btn btn-login" value="Get OTP">
+                                      </div>
+                                      <div class="col-sm-6 col-sm-offset-0">
+                                          <input type="submit" name="get_package" id="get_package" tabindex="4" class="form-control btn btn-login" value="Get Package Details">
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label><h2>Punctures and Alignments</h2></label>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                          <form id="updates" method="POST" role="form" action="{{ URL::to("/updates") }}" style="display: block;">
+                            {{ csrf_field() }}
+                            <?php
+                               $my_mobile = session()->get('mobile'); ?>
+                              <div class="form-group">
+                                <div class="baseClientIcon">
+                                  <select name="base_client" id="base_client" tabindex="2" class="form-control" data-live-search="true" data-live-search-style="startsWith">
+                                    <option selected value="0">-- Select the client --</option>
+                                    <?php
+                                        $user_name_find = DB::select("SELECT * FROM create_user WHERE user_type = 3");
+                                        foreach ($user_name_find as $keys) {
+                                          $name = $keys->name;
+                                          $id = $keys->user_id; ?>
+                                        <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                      <?php }
+                                     ?>
+                                  </select>
+                                  <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                </div>
+                              </div>
+                              <div class="form-group" >
+                                <div class="row">
+                                  <div class="basePunctureIcon">
+                                    <div class="col-md-6">
+                                      <select name="base_puncture" id="base_puncture" tabindex="2" class="form-control">
+                                        <option selected value="0">-- Select the puncture --</option>
+                                        <?php
+                                          for ($i=1; $i < 10; $i++) {
+                                            ?>
+                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                          <?php
+                                            }
+                                         ?>
+                                      </select>
+                                      <i class="fa fa-road fa-lg fa-fw" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                  <div class="baseAlignmentIcon">
+                                    <div class="col-md-6">
+                                      <select name="base_alignment" id="base_alignment" tabindex="2" class="form-control">
+                                        <option selected value="0">-- Select the alignment --</option>
+                                        <?php
+                                          for ($i=1; $i < 10; $i++) {
+                                            ?>
+                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                          <?php
+                                            }
+                                         ?>
+                                      </select>
+                                      <i class="fa fa-gears fa-lg fa-fw" aria-hidden="true"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="row">
+                                      <div class="col-sm-6 col-sm-offset-3">
+                                          <input type="submit" name="pun_alig" id="pun_alig" tabindex="4" class="form-control btn btn-login" value="Update Puncture and Alignment">
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 </body>
 <script>
+    $("#pun_alig").click(function(){
+      var base_client = document.getElementById("base_client").value;
+      var base_puncture = document.getElementById("base_puncture").value;
+      var base_alignment = document.getElementById("base_alignment").value;
+      if (base_client == "0") {
+        $("#base_client").css("border-color","#D84315");
+        $("#base_client").css("background-color","#FBE9E7");
+        $("#base_puncture").css("border-color","#D84315");
+        $("#base_puncture").css("background-color","#FBE9E7");
+        $("#base_alignment").css("border-color","#D84315");
+        $("#base_alignment").css("background-color","#FBE9E7");
+        return false;
+      }
+
+      if (base_client == "0") {
+        $("#base_client").css("border-color","#D84315");
+        $("#base_client").css("background-color","#FBE9E7");
+        return false;
+      }
+    });
+    $("#get_client_otp").click(function(){
+      var find = document.getElementById("find").value;
+      if (find == 0) {
+        $("#find").css("border-color","#D84315");
+        $("#find").css("background-color","#FBE9E7");
+        alert("Please select user and try again!!!!");
+        return false;
+      }
+    });
+
+    $("#find").change(function(){
+      var find = document.getElementById("find").value;
+      if (find != 0){
+        $("#find").css("background-color","#C8E6C9");
+        $("#find").css("border-color","#388E3C");
+      } else {
+        $("#find").css("background-color","#FBE9E7");
+        $("#find").css("border-color","#D84315");
+      }
+    });
+
     $("#change").click(function(){
       var pass = document.getElementById("change_password").value;
       var retype = document.getElementById("retype_password").value;
@@ -272,7 +629,7 @@
         $("#retype_password").css("background-color","#FBE9E7");
         $("#retype_password").css("border-color","#D84315");
         $("#change_password").css("background-color","#FBE9E7");
-        $("#change_password").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
         return false;
       }
       else if (retype == ""){
@@ -326,7 +683,43 @@
       }
     });
 
-    $('html, body').animate({scrollTop: '150px'}, 800);
+    $("#base_client").change(function(){
+      var base_client1 = document.getElementById("base_client").value;
+      if (base_client1 != "0"){
+        $("#base_client").css("background-color","#C8E6C9");
+        $("#base_client").css("border-color","#388E3C");
+      } else {
+        $("#base_client").css("background-color","#FBE9E7");
+        $("#base_client").css("border-color","#D84315");
+      }
+    });
+
+    $("#base_puncture").change(function(){
+      var base_puncture1 = document.getElementById("base_puncture").value;
+      if (base_puncture1 != "0"){
+        $("#base_puncture").css("background-color","#C8E6C9");
+        $("#base_puncture").css("border-color","#388E3C");
+      } else {
+        $("#base_puncture").css("background-color","#FBE9E7");
+        $("#base_puncture").css("border-color","#D84315");
+      }
+    });
+
+    $("#base_alignment").change(function(){
+      var base_alignment1 = document.getElementById("base_alignment").value;
+      if (base_alignment1 != "0"){
+        $("#base_alignment").css("background-color","#C8E6C9");
+        $("#base_alignment").css("border-color","#388E3C");
+      } else {
+        $("#base_alignment").css("background-color","#FBE9E7");
+        $("#base_alignment").css("border-color","#D84315");
+      }
+    });
+
+    $('html, body').animate({scrollTop: '50px'}, 1500);
+    setTimeout(function() {
+        location.reload();
+    }, 1200000);
 </script>
 </html>
 <!-- Completed by Sainath kishore.R.G at 18-06-2019 -->

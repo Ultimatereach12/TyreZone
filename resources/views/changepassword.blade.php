@@ -1,6 +1,6 @@
 <!-- create by R.G.Sainath kishore at 27-06-2019 intial commit-->
 <!-- used editor Atom IDE -->
-<!-- Admin -->
+<!-- SuperAdmin -->
 @extends('layouts.app')
 
 @section('content')
@@ -9,12 +9,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!--Ends here -->
 
     <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!------ Bootstrap Ends ---------->
 
     <!-- Fonts -->
@@ -133,17 +135,8 @@
             border-color: #1CA347;
         }
 
-        #title{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #title:hover,
-        #title:focus{
+        #retype_password:hover,
+        #retype_password:focus{
             border-top-right-radius: 200px;
             border-top-left-radius: 200px;
             border-bottom-right-radius: 200px;
@@ -153,29 +146,36 @@
             border-color: #5a6268;
         }
 
-        #content:hover,
-        #content:focus{
-          border-top-right-radius: 100px;
-          border-top-left-radius: 100px;
-          border-bottom-right-radius: 100px;
-          border-bottom-left-radius: 100px;
-          padding: 70px;
-          background-color: #E0F7FA;
-          border-color: #5a6268;
-          height: 300px;
-        }
-
-        #content{
-            border-top-right-radius: 100px;
-            border-top-left-radius: 100px;
-            border-bottom-right-radius: 100px;
-            border-bottom-left-radius: 100px;
-            padding: 70px;
+        #retype_password{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
             border-color: #5a6268;
-            height: 300px;
         }
 
-        .titleIcon i{
+        #change_password{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            border-color: #5a6268;
+        }
+
+        #change_password:hover,
+        #change_password:focus{
+            border-top-right-radius: 200px;
+            border-top-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+            border-bottom-left-radius: 200px;
+            padding-inline-start: 75px;
+            background-color: #E0F7FA;
+            border-color: #5a6268;
+        }
+
+        .passwordIcon i{
             position: absolute;
             left: 0;
             top: 2px;
@@ -184,11 +184,11 @@
             transition: 0.3s;
         }
 
-        .contentIcon i{
+        .retypeIcon i{
             position: absolute;
             left: 0;
             top: 2px;
-            padding: 190px 40px;
+            padding: 70px 40px;
             color: #aaa;
             transition: 0.3s;
         }
@@ -205,121 +205,131 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href=""><strong>TyreZone</strong></a>
+        <a class="navbar-brand" href="">TyreZone</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
-        <li class="active"><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1 and pick_up_arranged = 0");
-        echo count($notify); ?></strong></a></li>
-        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
-        echo count($notify); ?></strong></a></li>
-        <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
+        <li><a href="superadmin" id="superadmin" name="superadmin">Create Admin</a></li>
+        <!-- <li><a href="production" id="production" name="production">Production Status</a></li> -->
+        <li><a href="createshop" id="createshop" name="createshop">Create Shop</a></li>
+        <li class="active"><a href="changepassword" id="changepassword" name="changepassword">Change Password</a></li>
+        <li><a href="lockuser" id="lock_user" name="lockuser">Lock User</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
     </div>
   </nav>
-  <!-- fixed nav bar end -->
-<div class="container" style="padding-top: 300px;">
+  <!-- fixed nav bar ends -->
+<div class="container" style="padding-top: 200px;">
     <div class="row justify-content-center">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-login">
               <div class="panel-heading">
                   <div class="row">
                       <div class="col-xs-6">
-                          <label><h2>Shop ID:<?php echo session()->get('shop_ids'); ?></h2></label>
+                          <label><h2>Change password</h2></label>
                       </div>
                   </div>
                   <hr>
               </div>
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label><h2>News & Events</h2></label>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                          <form id="news" method="POST" role="form" action="{{ URL::to("/news") }}" style="display: block;">
-                            {{ csrf_field() }}
-                              <div class="form-group">
-                                <div class="titleIcon">
-                                  <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="Title" value="">
-                                  <i class="fa fa-newspaper-o fa-lg fa-fw" aria-hidden="true"></i>
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-lg-12">
+                        <form id="updates" method="POST" role="form" action="{{ URL::to("/changepassword") }}" style="display: block;">
+                          {{ csrf_field() }}
+                          <?php
+                             $my_mobile = session()->get('mobile'); ?>
+                            <div class="form-group">
+                              <div class="passwordIcon">
+                                <input type="password" name="change_password" id="change_password" tabindex="1" class="form-control" placeholder="Password" value="">
+                                <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="retypeIcon">
+                                <input type="password" name="retype_password" id="retype_password" tabindex="1" class="form-control" placeholder="Confrom Password" value="">
+                                <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input type="submit" name="change" id="change" tabindex="4" class="form-control btn btn-login" value="Change Password">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="form-group">
-                                <div class="contentIcon">
-                                  <textarea name="content" id="content" tabindex="2" class="form-control" placeholder="Start typing..." value=""></textarea>
-                                  <i class="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                  <div class="row">
-                                      <div class="col-sm-6 col-sm-offset-3">
-                                          <input type="submit" name="publish" id="publish" tabindex="4" class="form-control btn btn-login" value="Publish">
-                                      </div>
-                                  </div>
-                              </div>
-                          </form>
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                        </form>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
 </body>
 <script>
-    $("#create_user").click(function(){
-      var title = document.getElementById("title").value;
-      var content = document.getElementById("content").value;
+    $("#change").click(function(){
+      var pass = document.getElementById("change_password").value;
+      var retype = document.getElementById("retype_password").value;
 
-      if (title == "" && content == "") {
-        $("#title").css("background-color","#FBE9E7");
-        $("#title").css("border-color","#D84315");
-        $("#content").css("background-color","#FBE9E7");
-        $("#content").css("border-color","#D84315");
+      if (pass == "" && retype == "") {
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("background-color","#FBE9E7");
         return false;
       }
-      else if (title == ""){
-        $("#title").css("background-color","#FBE9E7");
-        $("#title").css("border-color","#D84315");
+      else if (retype == ""){
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
         return false;
       }
-      else if (content == ""){
-        $("#content").css("background-color","#FBE9E7");
-        $("#content").css("border-color","#D84315");
+      else if (pass == ""){
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
+        return false;
+      }
+      else if (pass != retype){
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
+        alert("Mismatched Password");
+        return false;
+      }
+
+      if (pass.length > 6 || retype.length > 6) {
+        $("#retype_password").css("background-color","#C8E6C9");
+        $("#retype_password").css("border-color","#388E3C");
+        $$("#change_password").css("background-color","#C8E6C9");
+        $("#change_password").css("border-color","#388E3C");
+        alert("Password minimum length should be six");
         return false;
       }
     });
 
-    $("#content").keyup(function(){
-      var content1 = document.getElementById("content").value;
-      if (id.length >= 50){
-        $("#content").css("background-color","#C8E6C9");
-        $("#content").css("border-color","#388E3C");
+    $("#change_password").keypress(function(){
+      var cp = document.getElementById("change_password").value;
+      if (cp.length > 6){
+        $("#change_password").css("background-color","#C8E6C9");
+        $("#change_password").css("border-color","#388E3C");
       } else {
-        $("#content").css("background-color","#FBE9E7");
-        $("#content").css("border-color","#D84315");
+        $("#change_password").css("background-color","#FBE9E7");
+        $("#change_password").css("border-color","#D84315");
       }
     });
 
-    $("#title").keyup(function(){
-      var title1 = document.getElementById("title").value;
-      if (title1.length >= 10){
-        $("#title").css("background-color","#C8E6C9");
-        $("#title").css("border-color","#388E3C");
+    $("#retype_password").keypress(function(){
+      var retype_password1 = document.getElementById("retype_password").value;
+      if (retype_password1.length > 6){
+        $("#retype_password").css("background-color","#C8E6C9");
+        $("#retype_password").css("border-color","#388E3C");
       } else {
-        $("#title").css("background-color","#FBE9E7");
-        $("#title").css("border-color","#D84315");
+        $("#retype_password").css("background-color","#FBE9E7");
+        $("#retype_password").css("border-color","#D84315");
       }
     });
 
-    $('html, body').animate({scrollTop: '150px'}, 800);
+    $('html, body').animate({scrollTop: '70px'}, 800);
+
 </script>
 </html>
 <!-- Completed by Sainath kishore.R.G at 18-06-2019 -->

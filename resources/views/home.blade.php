@@ -386,8 +386,10 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
-        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
+        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
+        <li><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
         <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
@@ -398,6 +400,14 @@
     <div class="row justify-content-center">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-login">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <label><h2>Shop ID:<?php echo session()->get('shop_ids'); ?></h2></label>
+                      </div>
+                  </div>
+                  <hr>
+              </div>
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">

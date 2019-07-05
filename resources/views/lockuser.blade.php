@@ -135,24 +135,26 @@
             border-color: #1CA347;
         }
 
-        #mobile{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
+        #name{
+          border-top-right-radius: 200px;
+          border-top-left-radius: 200px;
+          border-bottom-right-radius: 200px;
+          border-bottom-left-radius: 200px;
+          padding-inline-start: 75px;
+          border-color: #5a6268;
+          height: 45px;
         }
 
-        #mobile:hover,
-        #mobile:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
+        #name:hover,
+        #name:focus{
+          border-top-right-radius: 200px;
+          border-top-left-radius: 200px;
+          border-bottom-right-radius: 200px;
+          border-bottom-left-radius: 200px;
+          padding-inline-start: 75px;
+          background-color: #E0F7FA;
+          border-color: #5a6268;
+          height: 45px;
         }
 
         #user_id:hover,
@@ -164,6 +166,7 @@
             padding-inline-start: 75px;
             background-color: #E0F7FA;
             border-color: #5a6268;
+            height: 45px;
         }
 
         #user_id{
@@ -173,140 +176,23 @@
             border-bottom-left-radius: 200px;
             padding-inline-start: 75px;
             border-color: #5a6268;
-        }
-
-        #password{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #password:hover,
-        #password:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #username:hover,
-        #username:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #username{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #email:hover,
-        #email:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
-        }
-
-        #email{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-        }
-
-        #address:hover,
-        #address:focus{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            background-color: #E0F7FA;
-            border-color: #5a6268;
             height: 45px;
-        }
-
-        #address{
-            border-top-right-radius: 200px;
-            border-top-left-radius: 200px;
-            border-bottom-right-radius: 200px;
-            border-bottom-left-radius: 200px;
-            padding-inline-start: 75px;
-            border-color: #5a6268;
-            height: 45px;
-        }
-
-        .usernameIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 70px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .passwordIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 250px 40px;
-            color: #aaa;
-            transition: 0.3s;
         }
 
         .useridIcon i{
             position: absolute;
             left: 0;
             top: 2px;
-            padding: 10px 40px;
+            padding: 140px 40px;
             color: #aaa;
             transition: 0.3s;
         }
 
-        .emailIcon i{
+        .nameIcon i{
             position: absolute;
             left: 0;
             top: 2px;
-            padding: 190px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .mobileIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 130px 40px;
-            color: #aaa;
-            transition: 0.3s;
-        }
-
-        .addressIcon i{
-            position: absolute;
-            left: 0;
-            top: 2px;
-            padding: 310px 40px;
+            padding: 140px 40px;
             color: #aaa;
             transition: 0.3s;
         }
@@ -326,11 +212,11 @@
         <a class="navbar-brand" href="">TyreZone</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="superadmin" id="superadmin" name="superadmin">Create Admin</a></li>
+        <li><a href="superadmin" id="superadmin" name="superadmin">Create Admin</a></li>
         <!-- <li><a href="production" id="production" name="production">Production Status</a></li> -->
         <li><a href="createshop" id="createshop" name="createshop">Create Shop</a></li>
         <li><a href="changepassword" id="changepassword" name="changepassword">Change Password</a></li>
-        <li><a href="lockuser" id="lock_user" name="lockuser">Lock User</a></li>
+        <li class="active"><a href="lockuser" id="lock_user" name="lockuser">Lock User</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
     </div>
@@ -343,101 +229,82 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <label><h2>Create User</h2></label>
+                            <label><h2>Lock/Unlock User</h2></label>
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <form id="home" method="POST" role="form" action="{{ URL::to("/superadmin") }}" style="display: block;">
+                        <div class="col-lg-6">
+                            <form id="home" method="POST" role="form" action="{{ URL::to("/lockuser") }}" style="display: block;">
                               {{ csrf_field() }}
-                              <div class="form-group">
-                                <div class="useridIcon">
-                                  <input type="text" name="user_id" id="user_id" tabindex="1" class="form-control" placeholder="User ID" value="" maxlength="8">
-                                  <i class="fa fa-id-card fa-lg fa-fw" aria-hidden="true"></i>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <div class="usernameIcon">
-                                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="User Name" value="" maxlength="20">
-                                  <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-                                </div>
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <label><h2>Lock User</h2></label>
+                                      </div>
+                                  </div>
+                                  <hr>
                               </div>
                                 <div class="form-group">
-                                  <div class="mobileIcon">
-                                    <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="" maxlength="10">
-                                    <i class="fa fa-mobile fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="emailIcon">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" maxlength="40">
-                                    <i class="fa fa-envelope-o fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="passwordIcon">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" maxlength="20">
-                                    <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="addressIcon">
-                                    <select name="address" id="address" tabindex="2" class="form-control">
-                                      <option selected value="0">-- Select the shop --</option>
+                                  <div class="useridIcon">
+                                    <select name="user_id" id="user_id" tabindex="2" class="form-control">
+                                      <option selected value="0">-- Select the user --</option>
                                       <?php
-                                        $items = DB::select("SELECT * FROM shop_details");
-                                        foreach ($items as $key) {
-                                          $id = $key->shop_id;
-                                          $area = $key->shop_area; ?>
-                                          <option value="<?php echo $id; ?>"><?php echo $area; ?></option>
+                                        $item = DB::select("SELECT * FROM create_user WHERE alive = ?",[1]);
+                                        foreach ($item as $key) {
+                                          $id = $key->user_id;
+                                          $name = $key->name; ?>
+                                          <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
                                         <?php }
                                        ?>
                                     </select>
-                                    <i class="fa fa-automobile fa-lg fa-fw" aria-hidden="true"></i>
+                                    <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                   </div>
                                 </div>
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="admin" id="admin" tabindex="4" class="form-control btn btn-login" value="Create Admin">
+                                            <input type="submit" name="lock" id="lock" tabindex="4" class="form-control btn btn-login" value="Lock User">
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-                <div class="panel-body" style="display: none;">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <form id="login-form" method="POST" role="form" action="{{ URL::to("/index") }}" style="display: block;">
+                        <div class="col-lg-6">
+                            <form id="home" method="POST" role="form" action="{{ URL::to("/lockuser") }}" style="display: block;">
                               {{ csrf_field() }}
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <label><h2>Unlock User</h2></label>
+                                      </div>
+                                  </div>
+                                  <hr>
+                              </div>
                                 <div class="form-group">
-                                  <div class="titeIcon">
-                                    <input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Username" value="">
+                                  <div class="nameIcon">
+                                    <select name="name" id="name" tabindex="2" class="form-control">
+                                      <option selected value="0">-- Select the user --</option>
+                                      <?php
+                                        $items = DB::select("SELECT * FROM create_user WHERE alive = ?",[0]);
+                                        foreach ($items as $key1) {
+                                          $ids = $key1->user_id;
+                                          $names = $key1->name; ?>
+                                          <option value="<?php echo $ids; ?>"><?php echo $names; ?></option>
+                                        <?php }
+                                       ?>
+                                    </select>
                                     <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                   </div>
                                 </div>
-                                <div class="form-group">
-                                  <div class="contentIcon">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                    <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="addressIcon">
-                                    <input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="Password">
-                                    <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                                  </div>
-                                </div>
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="create" id="create" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <input type="submit" name="unlock" id="unlock" tabindex="4" class="form-control btn btn-login" value="Unlock User">
                                         </div>
                                     </div>
                                 </div>
@@ -467,7 +334,6 @@
         $("#username").css("background-color","#FBE9E7");
         $("#username").css("border-color","#D84315");
         $("#user_id").css("background-color","#FBE9E7");
-        $("#user_id").css("background-color","#D84315");
         $("#email").css("background-color","#FBE9E7");
         $("#email").css("border-color","#D84315");
         $("#user_id").css("border-color","#D84315");

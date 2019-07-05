@@ -28,6 +28,10 @@
         body {
             padding-top: 0px;
         }
+        #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 900px;  /* The width is the width of the web page */
+       }
         .panel-login {
             border-color: #ccc;
             -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
@@ -181,8 +185,10 @@
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::to("/home") }}" id="home" name="home">Create User</a></li>
         <li><a href="{{ URL::to("/news") }}" id="news" name="news">News and Events</a></li>
-        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup</a></li>
-        <li class="active"><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup</a></li>
+        <li><a href="{{ URL::to("/emergency") }}" id="emergency" name="emergency">Emergency Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 1 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
+        <li class="active"><a href="{{ URL::to("/arrange") }}" id="arrange" name="arrange">Arrange Pickup <strong style="color: #D84315"><?php $notify = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
+        echo count($notify); ?></strong></a></li>
         <li><a href="{{ URL::to("/updates") }}" id="updates" name="updates">Updates</a></li>
         <li><a href="{{ URL::to("/") }}" id="logout" name="logout">Logout</a></li>
       </ul>
@@ -193,10 +199,18 @@
     <div class="row justify-content-center">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-login">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <label><h2>Shop ID:<?php echo $shop_get = session()->get('shop_ids'); ?></h2></label>
+                      </div>
+                  </div>
+                  <hr>
+              </div>
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <label><h2>Create User</h2></label>
+                            <label><h2>Arrange pickup</h2></label>
                         </div>
                     </div>
                     <hr>
@@ -211,7 +225,7 @@
                                 <select name="client" id="client" tabindex="2" class="form-control">
                                   <option selected value="0">-- Select the client --</option>
                                   <?php
-                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0");
+                                    $items = DB::select("SELECT * FROM arrange_pickup WHERE is_emergency = 0 and pick_up_arranged = 0 and shop_id = '".$shop_get."'");
                                     foreach ($items as $key) {
                                       $id = $key->user_id;
                                       $user_name_find = DB::select("SELECT * FROM create_user WHERE user_id = '".$id."'");
@@ -227,8 +241,11 @@
                             </div>
                               <div class="form-group">
                                   <div class="row">
-                                      <div class="col-sm-6 col-sm-offset-3">
+                                      <div class="col-sm-6 col-sm-offset-0">
                                           <input type="submit" name="arrange" id="arrange" tabindex="4" class="form-control btn btn-login" value="Arrange Pickup">
+                                      </div>
+                                      <div class="col-sm-6 col-sm-offset-0">
+                                          <input type="submit" name="live" id="live" tabindex="4" class="form-control btn btn-login" value="Live Location">
                                       </div>
                                   </div>
                               </div>
@@ -238,7 +255,37 @@
                 </div>
             </div>
         </div>
+        <div id="map" class="col-md-9 col-md-offset-2"></div>
     </div>
+    <br>
+    <br>
+    <br>
+    <?php if (isset($_POST['live'])) {
+      $client_id = $_POST['client'];
+      $client  = DB::select("SELECT * FROM arrange_pickup WHERE user_id = '".$client_id."' and is_emergency = 0 ORDER BY id DESC LIMIT 1");
+      foreach ($client as $checking) {
+        $lat = $checking->loc_lat;
+        $long = $checking->loc_long;
+      }
+      ?>
+      <script>
+      function initMap() {
+        var lat = "<?php echo $lat; ?>";
+        var long = "<?php echo $long; ?>";
+        var lat1 = parseFloat(lat);
+        var long1 = parseFloat(long);
+        var uluru = {lat: lat1, lng: long1};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 10, center: uluru});
+        var marker = new google.maps.Marker({position: uluru, map: map});
+      }
+          </script>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVESA3O6ilWwM60YmumzwjbWDStUQbN6c&callback=initMap">
+          </script>
+      <?php
+    }
+    ?>
 </div>
 </body>
 <script>

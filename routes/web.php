@@ -24,3 +24,7 @@ Route::any('/emergency', 'MainController@emergency');
 Route::any('/arrange', 'MainController@arrange');
 Route::any('/updates', 'MainController@updates');
 Route::any('/superadmin', 'MainController@createadmin');
+Route::any('/production', 'MainController@production');
+Route::any('/createshop', 'MainController@createshop');
+Route::any('/changepassword', 'MainController@changepassword');
+Route::any('/lockuser', 'MainController@lockuser');
